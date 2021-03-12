@@ -2,22 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The countDown</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-    <header>
-        <div></div>
-    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 header-container">
+                <h2>countDown</h2>
+            </div>
+        </div>
 
-    <main>
-        <div></div>
-    </main>
+        <div class="row">
+            <div class="col-3 filter-group">
+                <select name="category" id="general">
+                    <option value="general">General</option>
+                    <option value="music-video">Music Video</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="movies">Movies</option>
+                </select>
+                <select name="category" id="entertainment">
+                    <option value="video-games">Video Games</option>
+                    <option value="board-games">Board Games</option>
+                    <option value="musical-theatres">Musical & Theatres</option>
+                    <option value="televisions">Televisions</option>
+                </select>
+                <select name="category" id="sports">
+                    <option value="baseball">Baseball</option>
+                    <option value="football">Football</option>
+                    <option value="basketball">Basketball</option>
+                    <option value="soccer">Soccer</option>
+                </select>
+                <select name="difficulty" id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
 
-    <footer>
-        <div></div>
-    </footer>
+            </div>
+            <div class="col-7">
+                <div class="questions-container">
+                    Generated questions go here.
+                </div>
+                <div class="answers-container">
+                    Answers go here <br>
+                    Video/clips can go here too that corresponds to correct/wrong answer.
+                </div>
+            </div>
+            <div class="col-2 counter-countainer">
+                <div class="countdown-counter">
+                    Countdown counter go here.
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div></div>
+        </footer>
+    </div>
     
 </body>
 </html>

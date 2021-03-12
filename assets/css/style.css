@@ -1,0 +1,38 @@
+body {
+    margin: 20px 30px;
+    border: 2px solid black;
+}
+
+.header-container {
+    margin: 20px 0 0 0;
+    border: 1px dashed red;
+    height: 70px;
+}
+.header-container h2 {
+    text-align: center;
+    position: relative; 
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+.filter-group {
+    border: 1px solid blue;
+    height: 400px;
+}
+#general, #sports, #entertainment, #difficulty {
+    display: block;
+    margin: 15px 0;
+}
+.questions-container {
+    border: 1px solid black;
+    height: 200px;
+}
+.answers-container {
+    border: 1px solid blueviolet;
+    height: 200px;
+}
+.countdown-counter {
+    border: 1px solid blue;
+    height: 400px;
+    width: 100%;
+}
