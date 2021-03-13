@@ -1,6 +1,6 @@
 
 let score = 0;
-let time = 150;
+let time = 10;
 let timer;
 
 const decrement = function() {
@@ -14,8 +14,13 @@ const decrement = function() {
 
 }
 
+// get the difficulty from the select input
+
+
 const getQuestions = function() {
-    const apiVariable = `https://opentdb.com/api.php?amount=15&category=18&difficulty=easy`
+    var difficulty = $("#difficulty").val()
+    var questionCategory = $("#category").val()
+    const apiVariable = `https://opentdb.com/api.php?amount=15&category=` + questionCategory + `&difficulty=` + difficulty
     fetch(apiVariable).then(function(response){
         if (response.ok) {
             response.json().then(function(data){
@@ -113,6 +118,6 @@ loseQuiz = function() {
   });
 }
 
-
-
-getQuestions();
+$("#start").on("click", getQuestions);
+// 
+// getQuestions();
