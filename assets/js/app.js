@@ -18,6 +18,10 @@ const getQuestions = function() {
 };
 
 const showQuestions = function(data, questionNumber) {
+    if (questionNumber == 15) {
+        winQuiz();
+        return;
+    }
     $(".questions-container").empty().append(data.results[questionNumber].question);
 
     const answers = [];
@@ -44,11 +48,11 @@ const showQuestions = function(data, questionNumber) {
                 userScore = userScore + 25;
                 console.log(userScore);
                 questionNumber = questionNumber + 1;
-                setTimeout(showQuestions, 3000);
+                setTimeout(showQuestions(data, questionNumber), 3000);
             } else {
                 console.log("WRONG!");
                 questionNumber = questionNumber + 1;
-                setTimeout(showQuestions, 3000);
+                setTimeout(showQuestions(data, questionNumber), 3000);
             }
         })
         $(".answers-container").append(button);
@@ -56,6 +60,19 @@ const showQuestions = function(data, questionNumber) {
 
 }
 
+winQuiz = function() {
+    $(".questions-container").empty();
+    $(".answers-container").empty();
+    fetch('https://api.giphy.com/v1/gifs/search?q=congratulations&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN')
+        .then(function(response){
+            return response.json();
+        })
+  
+    .then(function(response) {
+        let num2 = Math.floor(Math.random() * 50);
+        var gifImg = document.createElement('img');
+        gifImg.setAttribute('src', response.data[num2].images.fixed_height.url);
+        $('.questions-container').append(gifImg);
+  });
+}
 getQuestions();
-
-
