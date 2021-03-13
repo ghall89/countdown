@@ -80,6 +80,8 @@ winQuiz = function() {
     $(".questions-container").empty();
     $(".answers-container").empty();
 
+    score = score + time;
+
     fetch('https://api.giphy.com/v1/gifs/search?q=congratulations&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN')
         .then(function(response){
             return response.json();
