@@ -1,6 +1,5 @@
 
 let userScore = 0;
-
 const getQuestions = function() {
     const apiVariable = `https://opentdb.com/api.php?amount=15&category=18&difficulty=easy`
     fetch(apiVariable).then(function(response){
@@ -26,10 +25,19 @@ const showQuestions = function(data, questionNumber) {
     for (let i = 0; i < data.results[questionNumber].incorrect_answers.length; i++) {
         answers.push(data.results[questionNumber].incorrect_answers[i]);
     }
+    var item = []
+    // randomize the answers for buttons
+    while (answers.length > 0) {
+    num = Math.floor(Math.random() * answers.length)
+    item.push(answers[num]);
+    answers.splice(num, 1);
+    console.log(item);
+    }
+    // create buttons
     console.log(answers);
     $(".answers-container").empty();
-    for (let i = 0; i < answers.length; i++) {
-        const button = $("<button/>").text(answers[i]).click(function() {
+    for (let i = 0; i < item.length; i++) {
+        const button = $("<button/>").text(item[i]).click(function() {
             console.log(this.innerText);
             if (this.innerText === data.results[questionNumber].correct_answer) {
                 console.log("Correct answer");
@@ -49,4 +57,5 @@ const showQuestions = function(data, questionNumber) {
 }
 
 getQuestions();
+
 
