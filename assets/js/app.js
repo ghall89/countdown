@@ -1,5 +1,19 @@
 
-let userScore = 0;
+let score = 0;
+let time = 150;
+let timer;
+
+const decrement = function() {
+    if (time > 0) {
+        $(".countdown-counter").empty().append(time);
+        time = time -1;
+        console.log(time);
+    } else if (time <= 0) {
+        loseQuiz();
+    }
+
+}
+
 const getQuestions = function() {
     const apiVariable = `https://opentdb.com/api.php?amount=15&category=18&difficulty=easy`
     fetch(apiVariable).then(function(response){
@@ -8,6 +22,7 @@ const getQuestions = function() {
                 console.log(data);
                 let questionNumber = 0;
                 console.log(data.results[0].question);
+                timer = setInterval(decrement, 1000);
                 showQuestions(data, questionNumber);
             })
         } else {
@@ -45,8 +60,8 @@ const showQuestions = function(data, questionNumber) {
             console.log(this.innerText);
             if (this.innerText === data.results[questionNumber].correct_answer) {
                 console.log("Correct answer");
-                userScore = userScore + 25;
-                console.log(userScore);
+                score = score + 25;
+                console.log(score);
                 questionNumber = questionNumber + 1;
                 setTimeout(showQuestions(data, questionNumber), 3000);
             } else {
@@ -61,8 +76,10 @@ const showQuestions = function(data, questionNumber) {
 }
 
 winQuiz = function() {
+    clearInterval(timer);
     $(".questions-container").empty();
     $(".answers-container").empty();
+
     fetch('https://api.giphy.com/v1/gifs/search?q=congratulations&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN')
         .then(function(response){
             return response.json();
@@ -75,4 +92,25 @@ winQuiz = function() {
         $('.questions-container').append(gifImg);
   });
 }
+
+loseQuiz = function() {
+    clearInterval(timer);
+    $(".questions-container").empty();
+    $(".answers-container").empty();
+
+    fetch('https://api.giphy.com/v1/gifs/search?q=timesup&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN')
+        .then(function(response){
+            return response.json();
+        })
+  
+    .then(function(response) {
+        let num2 = Math.floor(Math.random() * 50);
+        var gifImg = document.createElement('img');
+        gifImg.setAttribute('src', response.data[num2].images.fixed_height.url);
+        $('.questions-container').append(gifImg);
+  });
+}
+
+
+
 getQuestions();
