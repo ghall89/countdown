@@ -42,6 +42,7 @@ const showQuestions = function(data, questionNumber) {
         winQuiz();
         return;
     }
+    $(".selections").css("visibility", "hidden");
     $(".questions-container").empty().append(data.results[questionNumber].question);
 
     const answers = [];
@@ -82,6 +83,7 @@ const showQuestions = function(data, questionNumber) {
 
 winQuiz = function() {
     clearInterval(timer);
+    $(".selections").css("visibility", "visible");
     $(".questions-container").empty();
     $(".answers-container").empty();
 
@@ -102,6 +104,7 @@ winQuiz = function() {
 
 loseQuiz = function() {
     clearInterval(timer);
+    $(".selections").css("visibility", "visible");
     $(".questions-container").empty();
     $(".answers-container").empty();
 
