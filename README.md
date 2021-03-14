@@ -1,7 +1,7 @@
 # Project countDown
 
 ## Summary
-A trivia Quiz.
+
 
 ## Use Case(s)
 
