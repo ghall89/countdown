@@ -1,6 +1,6 @@
 
 let score = 0;
-let time = 10;
+let time;
 let timer;
 
 const decrement = function() {
@@ -9,7 +9,7 @@ const decrement = function() {
         time = time -1;
         console.log(time);
     } else if (time <= 0) {
-        loseQuiz();
+        endQuiz();
     }
 
 }
@@ -20,12 +20,13 @@ const decrement = function() {
 const getQuestions = function() {
     var difficulty = $("#difficulty").val()
     var questionCategory = $("#category").val()
-    const apiVariable = `https://opentdb.com/api.php?amount=15&category=` + questionCategory + `&difficulty=` + difficulty
+    const apiVariable = `https://opentdb.com/api.php?amount=15&category=${questionCategory}&difficulty=${difficulty}`;
     fetch(apiVariable).then(function(response){
         if (response.ok) {
             response.json().then(function(data){
                 console.log(data);
                 let questionNumber = 0;
+                time = 150;
                 console.log(data.results[0].question);
                 timer = setInterval(decrement, 1000);
                 showQuestions(data, questionNumber);
@@ -39,7 +40,7 @@ const getQuestions = function() {
 
 const showQuestions = function(data, questionNumber) {
     if (questionNumber == 15) {
-        winQuiz();
+        endQuiz();
         return;
     }
     $(".selections").css("visibility", "hidden");
@@ -81,15 +82,23 @@ const showQuestions = function(data, questionNumber) {
 
 }
 
-winQuiz = function() {
+endQuiz = function() {
     clearInterval(timer);
     $(".selections").css("visibility", "visible");
     $(".questions-container").empty();
     $(".answers-container").empty();
 
     score = score + time;
+    
+    let gifSearch = "";
+    
+    if (time == 0) {
+      gifSearch = "timesup"
+    } else {
+      gifSearch = "congratulations ";
+    }
 
-    fetch('https://api.giphy.com/v1/gifs/search?q=congratulations&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN')
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN`)
         .then(function(response){
             return response.json();
         })
@@ -100,26 +109,8 @@ winQuiz = function() {
         gifImg.setAttribute('src', response.data[num2].images.fixed_height.url);
         $('.questions-container').append(gifImg);
   });
-}
+};
 
-loseQuiz = function() {
-    clearInterval(timer);
-    $(".selections").css("visibility", "visible");
-    $(".questions-container").empty();
-    $(".answers-container").empty();
-
-    fetch('https://api.giphy.com/v1/gifs/search?q=timesup&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN')
-        .then(function(response){
-            return response.json();
-        })
-  
-    .then(function(response) {
-        let num2 = Math.floor(Math.random() * 50);
-        var gifImg = document.createElement('img');
-        gifImg.setAttribute('src', response.data[num2].images.fixed_height.url);
-        $('.questions-container').append(gifImg);
-  });
-}
 
 $("#start").on("click", getQuestions);
 // 
