@@ -84,6 +84,10 @@ body {
     padding: 5px;
     margin-left: 5px;
 }
+#distraction, #top5 {
+    background-color: black;
+    border: 1px solid blue;
+}
 /* #contributors a:hover {
     font-size: larger;
 } */
