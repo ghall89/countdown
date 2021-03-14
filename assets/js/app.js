@@ -20,7 +20,7 @@ const decrement = function() {
 const getQuestions = function() {
     var difficulty = $("#difficulty").val()
     var questionCategory = $("#category").val()
-    const apiVariable = `https://opentdb.com/api.php?amount=15&category=` + questionCategory + `&difficulty=` + difficulty
+    const apiVariable = `https://opentdb.com/api.php?amount=15&category=${questionCategory}&difficulty=${difficulty}`;
     fetch(apiVariable).then(function(response){
         if (response.ok) {
             response.json().then(function(data){
@@ -97,7 +97,7 @@ endQuiz = function() {
       gifSearch = "congratulations ";
     }
 
-    fetch('https://api.giphy.com/v1/gifs/search?q=' + gifSearch + '&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN')
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN`)
         .then(function(response){
             return response.json();
         })
