@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="row">
+    <div class="container g-0">
+        <div class="row g-0">
             <div class="col-12 header-container">
                 <h2>countDown</h2>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row g-0">
             <div class="col-3 filter-group selections">
                 <select name="category" id="category">
                     <option value="9">General</option>
@@ -40,10 +40,6 @@
                 <div class="questions-container">
                     Generated questions go here.
                 </div>
-                <div class="answers-container">
-                    Answers go here <br>
-                    Video/clips can go here too that corresponds to correct/wrong answer.
-                </div>
             </div>
             <div class="col-2 counter-countainer">
                 <div class="countdown-counter">
@@ -52,15 +48,34 @@
             </div>
 
         </div>
-
-        <footer>
-            <div class="portfolios">
-                <h2>&copy; 2021 Made with ❤️ by:</h2>
-                <a href="https://htang2021.github.io/htang-porfolio/">Hung Tang</a>
-                <a href="https://ghall89.github.io/portfolio-page/">Graham Hall</a>
-                <a href="https://clayto30.github.io/professional-portfolio/">Clayton Goff</a>
+        <div class="row g-0">
+            <div class="col-3">
+                Distraction goes here, i.e. explotion or distraction images, etc.
             </div>
-        </footer>
+            <div class="col-7">
+                <div class="answers-container">
+                    Answers go here <br>
+                    Video/clips can go here too that corresponds to correct/wrong answer.
+                </div>
+            </div>
+            <div class="col-2">
+                Top 5 initials/scores go here
+            </div>
+        </div>
+
+        <div class="row g-0">
+            <div class="portfolios">
+                <div id="copyright">
+                    <p>&copy; 2021 </p>
+                </div>
+                <div id="contributors">
+                    <a href="https://ncortes85.github.io/htang-porfolio/">Nestor Cortes</a>
+                    <a href="https://htang2021.github.io/htang-porfolio/">Hung Tang</a>
+                    <a href="https://ghall89.github.io/portfolio-page/">Graham Hall</a>
+                    <a href="https://clayto30.github.io/professional-portfolio/">Clayton Goff</a>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/app.js"></script>
