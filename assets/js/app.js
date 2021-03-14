@@ -1,6 +1,6 @@
 
 let score = 0;
-let time = 150;
+let time;
 let timer;
 
 const decrement = function() {
@@ -26,6 +26,7 @@ const getQuestions = function() {
             response.json().then(function(data){
                 console.log(data);
                 let questionNumber = 0;
+                time = 150;
                 console.log(data.results[0].question);
                 timer = setInterval(decrement, 1000);
                 showQuestions(data, questionNumber);
