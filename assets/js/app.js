@@ -43,7 +43,7 @@ const showQuestions = function(data, questionNumber) {
         endQuiz();
         return;
     }
-    $(".selections").css("visibility", "hidden");
+    $(".selections > form").css("visibility", "hidden");
     $(".questions-container").empty().append(data.results[questionNumber].question);
 
     const answers = [];
@@ -84,7 +84,7 @@ const showQuestions = function(data, questionNumber) {
 
 endQuiz = function() {
     clearInterval(timer);
-    $(".selections").css("visibility", "visible");
+    $(".selections  > form").css("visibility", "visible");
     $(".questions-container").empty();
     $(".answers-container").empty();
 
@@ -112,7 +112,10 @@ endQuiz = function() {
 };
 
 
-$("#start").on("click", getQuestions);
+$("#start").on("click", function(){
+  event.preventDefault();
+  getQuestions();
+});
 // 
 // getQuestions();
 // Write to localStorage ********************************
