@@ -43,7 +43,8 @@ const showQuestions = function(data, questionNumber) {
         endQuiz();
         return;
     }
-    $(".selections > form").css("visibility", "hidden");
+    $(".selections > form > button").prop( "disabled", true );
+    $(".selections > form > select").prop( "disabled", true );
     $(".questions-container").empty().append(data.results[questionNumber].question);
 
     const answers = [];
@@ -63,7 +64,7 @@ const showQuestions = function(data, questionNumber) {
     console.log(answers);
     $(".answers-container").empty();
     for (let i = 0; i < item.length; i++) {
-        const button = $("<button/>").text(item[i]).click(function() {
+        const button = $("<div>").html(`<button>${item[i]}</button>`).click(function() {
             console.log(this.innerText);
             if (this.innerText === data.results[questionNumber].correct_answer) {
                 $(".answers-container").empty().append("Correct!");
@@ -85,7 +86,8 @@ const showQuestions = function(data, questionNumber) {
 
 endQuiz = function() {
     clearInterval(timer);
-    $(".selections  > form").css("visibility", "visible");
+    $(".selections > form > button").prop( "disabled", false );
+    $(".selections > form > select").prop( "disabled", false );
     $(".questions-container").empty();
     $(".answers-container").empty();
 
