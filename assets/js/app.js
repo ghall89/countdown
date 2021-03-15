@@ -1,13 +1,14 @@
 
 let score = 0;
+scoreList = [];
 let time;
 let timer;
+scoreList = [];
 
 const decrement = function() {
     if (time > 0) {
-        $(".countdown-counter").empty().append(time);
         time = time -1;
-        console.log(time);
+        $(".countdown-counter").empty().append(time);
     } else if (time <= 0) {
         endQuiz();
     }
@@ -27,7 +28,7 @@ const getQuestions = function() {
                 console.log(data);
                 let questionNumber = 0;
                 time = 150;
-                console.log(data.results[0].question);
+                $(".countdown-counter").empty().append(time);
                 timer = setInterval(decrement, 1000);
                 showQuestions(data, questionNumber);
             })
@@ -43,7 +44,8 @@ const showQuestions = function(data, questionNumber) {
         endQuiz();
         return;
     }
-    $(".selections").css("visibility", "hidden");
+    $(".selections > form > button").prop( "disabled", true );
+    $(".selections > form > select").prop( "disabled", true );
     $(".questions-container").empty().append(data.results[questionNumber].question);
 
     const answers = [];
@@ -57,25 +59,22 @@ const showQuestions = function(data, questionNumber) {
     num = Math.floor(Math.random() * answers.length)
     item.push(answers[num]);
     answers.splice(num, 1);
-    console.log(item);
     }
     // create buttons
-    console.log(answers);
     $(".answers-container").empty();
     for (let i = 0; i < item.length; i++) {
-        const button = $("<button/>").text(item[i]).click(function() {
-            console.log(this.innerText);
+        const button = $("<button>").html(item[i]).click(function() {
             if (this.innerText === data.results[questionNumber].correct_answer) {
-                console.log("Correct answer");
+                $(".answers-container").empty().append("Correct!");
                 score = score + 25;
-                console.log(score);
-                questionNumber = questionNumber + 1;
-                setTimeout(showQuestions(data, questionNumber), 3000);
             } else {
-                console.log("WRONG!");
-                questionNumber = questionNumber + 1;
-                setTimeout(showQuestions(data, questionNumber), 3000);
+                $(".answers-container").empty().append("Wrong!");
             }
+            setTimeout(function(){
+              questionNumber = questionNumber + 1;
+              showQuestions(data, questionNumber);
+            }, 2000)
+
         })
         $(".answers-container").append(button);
     }
@@ -84,7 +83,9 @@ const showQuestions = function(data, questionNumber) {
 
 endQuiz = function() {
     clearInterval(timer);
-    $(".selections").css("visibility", "visible");
+
+    $(".selections > form > button").prop( "disabled", false );
+    $(".selections > form > select").prop( "disabled", false );
     $(".questions-container").empty();
     $(".answers-container").empty();
 
@@ -93,9 +94,18 @@ endQuiz = function() {
     let gifSearch = "";
     
     if (time == 0) {
+      $(".countdown-counter").empty().append("Time's Up!");
       gifSearch = "timesup"
     } else {
       gifSearch = "congratulations ";
+      score = score + time;
+      console.log(`Score: ${score}`);
+      
+      
+      // !!== hardcoded initials, make sure to use value of user input from modal when that's added ==!!
+      let initials = "ABC"
+      setHighScore(initials);
+      
     }
 
     fetch(`https://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN`)
@@ -111,18 +121,42 @@ endQuiz = function() {
   });
 };
 
+const setHighScore = (initials) => {
+  let highScore = {
+    initials: initials,
+    score: score
+  };
+  console.log(highScore);
+  scoreList.push(highScore);
+  writeToStorage();
+  displayHighScore();
+}
 
-$("#start").on("click", getQuestions);
+const displayHighScore = function() {
+  $("#high-scores").empty();
+  for (let i = 0; i < 5; i++) {
+    $("#high-scores").append(`<li>${scoreList[i].initials}, score: ${scoreList[i].score}</li>`);
+  }
+}
+
+$("#start").on("click", function(){
+  event.preventDefault();
+  $(".countdown-counter").empty();
+  getQuestions();
+});
 // 
 // getQuestions();
 // Write to localStorage ********************************
 // Pass a full object array nameObjArry = [{initial: xyz, score: 123}, {initial: abc, score: 345}, .....]
-var writeToStorage = function(nameObjArry) {
-    localStorage.setItem("scoreList", JSON.stringify(nameObjArry));
+var writeToStorage = function() {
+    localStorage.setItem("scoreList", JSON.stringify(scoreList));
 }
 
 // Return what's stored in localStorage *******************************
 var readFromStorage = function() {
-    let scoreList = JSON.parse(localStorage.getItem("scoreList"));
-    return scoreList; // an object array
+    scoreList = JSON.parse(localStorage.getItem("scoreList"));
+    console.log(scoreList);
+    displayHighScore();
 }
+
+readFromStorage();
