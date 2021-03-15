@@ -129,8 +129,15 @@ const setHighScore = (initials) => {
   console.log(highScore);
   scoreList.push(highScore);
   writeToStorage();
+  displayHighScore();
 }
 
+const displayHighScore = function() {
+  $("#high-scores").empty();
+  for (let i = 0; i < 5; i++) {
+    $("#high-scores").append(`<li>${scoreList[i].initials}, score: ${scoreList[i].score}</li>`);
+  }
+}
 
 $("#start").on("click", function(){
   event.preventDefault();
@@ -149,6 +156,7 @@ var writeToStorage = function() {
 var readFromStorage = function() {
     scoreList = JSON.parse(localStorage.getItem("scoreList"));
     console.log(scoreList);
+    displayHighScore();
 }
 
 readFromStorage();
