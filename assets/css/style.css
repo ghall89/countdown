@@ -1,9 +1,7 @@
 body {
-    margin: 20px 30px;
-    border: 2px solid black;
+    margin: 30px;
 }
 .container {
-    border: 1px solid blue;
     width: 100%;
     margin: 0;
 }
@@ -11,13 +9,13 @@ body {
     width: 100%;
 }
 .header-container {
-    margin: 20px 0 0 0;
-    border: 1px dashed red;
-    height: 70px;
+    margin: 0;
+    border-bottom: 2px solid grey;
+    height: 80px;
     background-color: black;
     color: gainsboro;
 }
-.header-container h2 {
+.header-container h1 {
     text-align: center;
     position: relative; 
     top: 50%;
@@ -27,11 +25,11 @@ body {
 .filter-group {
     border: 1px solid blue;
     min-height: 200px;
-    background-color: darkgrey;
+    background-color: black;
 }
 #category, #difficulty {
     display: block;
-    margin: 15px 0;
+    margin: 15px 10px 10px 15px;
     width: 90%;
     border-radius: 5px;
     background-color: cornsilk;
@@ -42,6 +40,7 @@ body {
     color: brown;
     border-radius: 5px;
     width: 90%;
+    margin-left: 15px;
 }
 .questions-container {
     border: 1px solid black;
@@ -53,21 +52,33 @@ body {
 .answers-container {
     border: 1px solid blueviolet;
     height: 200px;
+    background-color: black;
+    color: gainsboro;
+    text-align: center;
+}
+.answers-container button {
+    margin-right: 5px;
+    border-radius: 3px;
+}
+.counter-container {
+    background-color: black;
+    border: 1px solid blue;
 }
 .countdown-counter {
-    border: 1px solid blue;
     height: 200px;
     text-align: center;
-    font-size: xx-large;
-    background-color: black;
+    font-size: 4rem;
     color: gainsboro;
     /* position: relative; 
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%); */
 }
-.portfolios {
-    border: 1px solid brown;
+#distraction, #top5 {
+    color: gainsboro;
+}
+.footer {
+    border-top: 2px groove grey;
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: space-between;
@@ -76,11 +87,10 @@ body {
 #copyright, #contributors {
     margin: 15px;
     font-weight: bold;
-    color: gainsboro;
+    color: grey;
 }
 #contributors a {
-    /* background-color: brown; */
-    color: gainsboro;
+    color: grey;
     padding: 5px;
     margin-left: 5px;
 }
@@ -88,6 +98,4 @@ body {
     background-color: black;
     border: 1px solid blue;
 }
-/* #contributors a:hover {
-    font-size: larger;
-} */
+
