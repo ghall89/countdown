@@ -66,16 +66,17 @@ const showQuestions = function(data, questionNumber) {
         const button = $("<button/>").text(item[i]).click(function() {
             console.log(this.innerText);
             if (this.innerText === data.results[questionNumber].correct_answer) {
-                console.log("Correct answer");
+                $(".answers-container").empty().append("Correct!");
                 score = score + 25;
                 console.log(score);
-                questionNumber = questionNumber + 1;
-                setTimeout(showQuestions(data, questionNumber), 3000);
             } else {
-                console.log("WRONG!");
-                questionNumber = questionNumber + 1;
-                setTimeout(showQuestions(data, questionNumber), 3000);
+                $(".answers-container").empty().append("Wrong!");
             }
+            setTimeout(function(){
+              questionNumber = questionNumber + 1;
+              showQuestions(data, questionNumber);
+            }, 2000)
+
         })
         $(".answers-container").append(button);
     }
