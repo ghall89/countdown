@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 let score = 0;
 let time;
 let timer;
@@ -116,7 +115,6 @@ endQuiz = function() {
 $("#start").on("click", getQuestions);
 // 
 // getQuestions();
-=======
 // Write to localStorage ********************************
 // Pass a full object array nameObjArry = [{initial: xyz, score: 123}, {initial: abc, score: 345}, .....]
 var writeToStorage = function(nameObjArry) {
@@ -128,4 +126,3 @@ var readFromStorage = function() {
     let scoreList = JSON.parse(localStorage.getItem("scoreList"));
     return scoreList; // an object array
 }
->>>>>>> feature/toStorage
