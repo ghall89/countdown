@@ -9,43 +9,46 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="row">
+    <div class="container g-0">
+        <!-- Title bar across the top -->
+        <div class="row g-0">
             <div class="col-12 header-container">
-                <h2>countDown</h2>
+                <h1>countDown</h2>
             </div>
         </div>
 
-        <div class="row">
+        <!-- Left column with pull-down selection -->
+        <div class="row g-0">
             <div class="col-3 filter-group selections">
-                <select name="category" id="category">
-                    <option value="9">General</option>
-                    <option value="12">Music</option>
-                    <option value="15">Gaming</option>
-                    <option value="11">Movies</option>
-                    <option value="16">Board Games</option>
-                    <option value="13">Musical & Theatres</option>
-                    <option value="14">Television</option>
-                    <option value="21">Sports</option>
-                </select>
-                <select name="difficulty" id="difficulty">
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-                <button id="start">Start</button>
-
+                <form>
+                    <select name="category" id="category">
+                        <option value="9">General</option>
+                        <option value="12">Music</option>
+                        <option value="15">Gaming</option>
+                        <option value="11">Movies</option>
+                        <option value="16">Board Games</option>
+                        <option value="13">Musical & Theatres</option>
+                        <option value="14">Television</option>
+                        <option value="21">Sports</option>
+                    </select>
+                    <select name="difficulty" id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                    <button id="start">Start</button>
+                </form>
             </div>
-            <div class="col-7">
+            
+            <!-- Center section with questions + giphy's -->
+            <div class="col-6">
                 <div class="questions-container">
                     Generated questions go here.
                 </div>
-                <div class="answers-container">
-                    Answers go here <br>
-                    Video/clips can go here too that corresponds to correct/wrong answer.
-                </div>
             </div>
-            <div class="col-2 counter-countainer">
+
+            <!-- Counter container -->
+            <div class="col-3 counter-container">
                 <div class="countdown-counter">
                     
                 </div>
@@ -53,11 +56,82 @@
 
         </div>
 
-        <footer>
-            <div></div>
-        </footer>
+        <div class="row g-0">
+            <!-- Where distraction giphy's goes -->
+            <div class="col-3" id="distraction">
+                Distraction goes here, i.e. explotion or distraction images, etc.
+            </div>
+
+            <!-- Answer choices & answers -->
+            <div class="col-6">
+                <div class="answers-container">
+                    Answers go here <br>
+                    Video/clips can go here too that corresponds to correct/wrong answer.
+                </div>
+            </div>
+            
+            <!-- Top 5 high scores list goes here -->
+            <div class="col-3" id="top5">
+                <h3>Top-5 High Scores</h3>
+                <ol id="high-scores"></div>
+            </div>
+        </div>
+
+        <div class="row g-0">
+            <div class="footer">
+                <div id="copyright">
+                    <p>&copy; 2021 </p>
+                </div>
+                <div id="contributors">
+                    <a href="https://psingh0920.github.io/htang-porfolio/">Pritika Singh</a>
+                    <a href="https://ncortes85.github.io/htang-porfolio/">Nestor Cortes</a>
+                    <a href="https://htang2021.github.io/htang-porfolio/">Hung Tang</a>
+                    <a href="https://ghall89.github.io/portfolio-page/">Graham Hall</a>
+                    <a href="https://clayto30.github.io/professional-portfolio/">Clayton Goff</a>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Congratulations!  You have made TOP 5!!!</h2>
+        </div>
+        <div class="modal-body">
+            <form class="modal-input">
+                <input type="text" class="initial">
+                <span id="new-score"></span>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <h4>Pleaes enter your initials to go onto Hall of Fame!</h4>
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+    <!-- End modal here -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/app.js"></script>
+    <!-- This script is temporary just to see how it looks-->
+    <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+    
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
+        <!-- End temporary script here-->
 </body>
 </html>
