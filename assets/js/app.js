@@ -1,9 +1,8 @@
 
 let score = 0;
-scoreList = [];
+let scoreList = [];
 let time;
 let timer;
-scoreList = [];
 
 const decrement = function() {
     if (time > 0) {
@@ -40,7 +39,7 @@ const getQuestions = function() {
 };
 
 const showQuestions = function(data, questionNumber) {
-    if (questionNumber == 15) {
+    if (questionNumber == 5) {
         endQuiz();
         return;
     }
@@ -134,7 +133,7 @@ const setHighScore = (initials) => {
 
 const displayHighScore = function() {
   $("#high-scores").empty();
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < scoreList.length && i < 5; i++) {
     $("#high-scores").append(`<li>${scoreList[i].initials}, score: ${scoreList[i].score}</li>`);
   }
 }
