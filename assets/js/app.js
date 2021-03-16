@@ -173,7 +173,10 @@ var writeToStorage = function() {
 var readFromStorage = function() {
     scoreList = JSON.parse(localStorage.getItem("scoreList"));
     console.log(scoreList);
-    displayHighScore();
+    
+    if (scoreList) {
+      displayHighScore();
+    }
 }
 
 readFromStorage();
