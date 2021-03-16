@@ -1,9 +1,8 @@
 
 let score = 0;
-scoreList = [];
+let scoreList = [];
 let time;
 let timer;
-scoreList = [];
 
 const decrement = function() {
     if (time > 0) {
@@ -40,7 +39,7 @@ const getQuestions = function() {
 };
 
 const showQuestions = function(data, questionNumber) {
-    if (questionNumber == 15) {
+    if (questionNumber == 5) {
         endQuiz();
         return;
     }
@@ -102,10 +101,6 @@ endQuiz = function() {
       console.log(`Score: ${score}`);
       
       
-      // !!== hardcoded initials, make sure to use value of user input from modal when that's added ==!!
-      let initials = "ABC"
-      setHighScore(initials);
-      
     }
 
     fetch(`https://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN`)
@@ -134,7 +129,7 @@ const setHighScore = (initials) => {
 
 const displayHighScore = function() {
   $("#high-scores").empty();
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < scoreList.length && i < 5; i++) {
     $("#high-scores").append(`<li>${scoreList[i].initials}, score: ${scoreList[i].score}</li>`);
   }
 }
@@ -144,6 +139,28 @@ $("#start").on("click", function(){
   $(".countdown-counter").empty();
   getQuestions();
 });
+
+$("#submit-btn").on("click", function(){
+    event.preventDefault();
+    var initialsStart = $(".initial").val();
+    initials = initialsStart.substring(0,3);
+    console.log(initials);
+    console.log(this);
+
+    setHighScore(initials);
+});
+
+$(".initial").keyup(function() {
+
+    let input = $(".initial").val();
+
+    if (input.length < 3) {
+        $("#submit-btn").prop("disabled", true);
+    } else {
+        $("#submit-btn").prop("disabled", false);
+    }
+});
+
 // 
 // getQuestions();
 // Write to localStorage ********************************
@@ -156,7 +173,13 @@ var writeToStorage = function() {
 var readFromStorage = function() {
     scoreList = JSON.parse(localStorage.getItem("scoreList"));
     console.log(scoreList);
-    displayHighScore();
+    if (scoreList) {
+      displayHighScore();
+    } else {
+      scoreList = [];
+    }
 }
 
 readFromStorage();
+
+$("#submit-btn").prop("disabled", true);
