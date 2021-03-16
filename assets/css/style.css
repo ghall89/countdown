@@ -47,7 +47,9 @@ body {
     min-height: 200px;
     text-align: center;
     background-color: black;
-    color:gainsboro;
+    color: #83040a;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
 }
 .answers-container {
     border: 1px solid blueviolet;
@@ -102,12 +104,17 @@ body {
     padding: 2px 16px;
     background-color: black;
     color: white;
+    text-align: center;
   }
-  .modal-body {padding: 2px 16px;}
+  .modal-body {
+      padding: 2px 16px;
+      display: flex;
+}
   .modal-footer {
     padding: 2px 16px;
     background-color: black;
     color: white;
+    margin: 110;
   }
   .modal-content {
     position: relative;
