@@ -1,10 +1,10 @@
-// initialize global variables
+
 let score = 0;
-let scoreList = [];
+scoreList = [];
 let time;
 let timer;
+scoreList = [];
 
-// game timer 
 const decrement = function() {
     if (time > 0) {
         time = time -1;
@@ -15,10 +15,12 @@ const decrement = function() {
 
 }
 
-// make an api call using the user-selected category and difficulty level 
+// get the difficulty from the select input
 
-const getQuestions = function(difficulty, questionCategory) {
 
+const getQuestions = function() {
+    var difficulty = $("#difficulty").val()
+    var questionCategory = $("#category").val()
     const apiVariable = `https://opentdb.com/api.php?amount=15&category=${questionCategory}&difficulty=${difficulty}`;
     fetch(apiVariable).then(function(response){
         if (response.ok) {
@@ -37,19 +39,15 @@ const getQuestions = function(difficulty, questionCategory) {
     });
 };
 
-// Display question text and answer buttons on page
 const showQuestions = function(data, questionNumber) {
-    // End quiz if all questions are answered
-    if (questionNumber == 5) {
+    if (questionNumber == 15) {
         endQuiz();
         return;
     }
-    // disable game options
     $(".selections > form > button").prop( "disabled", true );
     $(".selections > form > select").prop( "disabled", true );
     $(".questions-container").empty().append(data.results[questionNumber].question);
-    
-    // take the correct answer and incorrect answers and store them in an array
+
     const answers = [];
     answers.push(data.results[questionNumber].correct_answer);
     for (let i = 0; i < data.results[questionNumber].incorrect_answers.length; i++) {
@@ -62,18 +60,16 @@ const showQuestions = function(data, questionNumber) {
     item.push(answers[num]);
     answers.splice(num, 1);
     }
-    // create and display buttons
+    // create buttons
     $(".answers-container").empty();
     for (let i = 0; i < item.length; i++) {
         const button = $("<button>").html(item[i]).click(function() {
-            // compare text value of the clicked button to the correct answer
             if (this.innerText === data.results[questionNumber].correct_answer) {
                 $(".answers-container").empty().append("Correct!");
                 score = score + 25;
             } else {
                 $(".answers-container").empty().append("Wrong!");
             }
-            // move to next question
             setTimeout(function(){
               questionNumber = questionNumber + 1;
               showQuestions(data, questionNumber);
@@ -85,19 +81,18 @@ const showQuestions = function(data, questionNumber) {
 
 }
 
-// Ends quiz, calculates score, and displays gif
 endQuiz = function() {
     clearInterval(timer);
-    // re-enable game options
+
     $(".selections > form > button").prop( "disabled", false );
     $(".selections > form > select").prop( "disabled", false );
     $(".questions-container").empty();
     $(".answers-container").empty();
-    // calculate score
+
     score = score + time;
     
-    // win or lose?
     let gifSearch = "";
+    
     if (time == 0) {
       $(".countdown-counter").empty().append("Time's Up!");
       gifSearch = "timesup"
@@ -105,14 +100,19 @@ endQuiz = function() {
       gifSearch = "congratulations ";
       score = score + time;
       console.log(`Score: ${score}`);
-      // !- call modal here -!
+      
+      
+      // !!== hardcoded initials, make sure to use value of user input from modal when that's added ==!!
+      let initials = "ABC"
+      setHighScore(initials);
+      
     }
-    // get a selection of gifs
+
     fetch(`https://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN`)
         .then(function(response){
             return response.json();
         })
-  // Randomize gif and display
+  
     .then(function(response) {
         let num2 = Math.floor(Math.random() * 50);
         var gifImg = document.createElement('img');
@@ -121,7 +121,6 @@ endQuiz = function() {
   });
 };
 
-// Pushes the current score and the user's initials to 'scoreList'
 const setHighScore = (initials) => {
   let highScore = {
     initials: initials,
@@ -133,54 +132,19 @@ const setHighScore = (initials) => {
   displayHighScore();
 }
 
-
-// Displays high score list on page
 const displayHighScore = function() {
   $("#high-scores").empty();
-  for (let i = 0; i < scoreList.length && i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
     $("#high-scores").append(`<li>${scoreList[i].initials}, score: ${scoreList[i].score}</li>`);
   }
 }
 
-// -- Event Listeners --
-
-// Get user input values and start the quiz
 $("#start").on("click", function(){
   event.preventDefault();
-  var difficulty = $("#difficulty").val()
-  var questionCategory = $("#category").val()
   $(".countdown-counter").empty();
-  getQuestions(difficulty, questionCategory);
+  getQuestions();
 });
-
-// Check to see if user has entered 3 characters
-$("#submit-btn").prop("disabled", true);
-
-$(".initial").keyup(function() {
-
-    let input = $(".initial").val();
-
-    if (input.length < 3) {
-        $("#submit-btn").prop("disabled", true);
-    } else {
-        $("#submit-btn").prop("disabled", false);
-    }
-});
-
-// Submit button is clicked
-$("#submit-btn").on("click", function(){
-    event.preventDefault();
-    var initialsStart = $(".initial").val();
-    initials = initialsStart.substring(0,3);
-    console.log(initials);
-    console.log(this);
-
-    setHighScore(initials);
-});
-
-
-// -- Local Storage --
-
+// 
 // getQuestions();
 // Write to localStorage ********************************
 // Pass a full object array nameObjArry = [{initial: xyz, score: 123}, {initial: abc, score: 345}, .....]
@@ -192,11 +156,7 @@ var writeToStorage = function() {
 var readFromStorage = function() {
     scoreList = JSON.parse(localStorage.getItem("scoreList"));
     console.log(scoreList);
-    
-    if (scoreList) {
-      displayHighScore();
-    }
+    displayHighScore();
 }
 
 readFromStorage();
-

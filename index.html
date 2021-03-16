@@ -73,7 +73,7 @@
             <!-- Top 5 high scores list goes here -->
             <div class="col-3" id="top5">
                 <h3>Top-5 High Scores</h3>
-                <ol id="high-scores"></ol>
+                <ol id="high-scores"></div>
             </div>
         </div>
 
@@ -106,13 +106,32 @@
         </div>
         <div class="modal-footer">
             <h4>Pleaes enter your initials to go onto Hall of Fame!</h4>
-            <button type="submit" id="submit-btn">Submit</button>
+            <button type="submit">Submit</button>
         </div>
     </div>
     <!-- End modal here -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/app.js"></script>
     <!-- This script is temporary just to see how it looks-->
-
+    <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+    
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
+        <!-- End temporary script here-->
 </body>
 </html>
