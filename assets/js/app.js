@@ -101,10 +101,6 @@ endQuiz = function() {
       console.log(`Score: ${score}`);
       
       
-      // !!== hardcoded initials, make sure to use value of user input from modal when that's added ==!!
-      let initials = "ABC"
-      setHighScore(initials);
-      
     }
 
     fetch(`https://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN`)
@@ -143,6 +139,28 @@ $("#start").on("click", function(){
   $(".countdown-counter").empty();
   getQuestions();
 });
+
+$("#submit-btn").on("click", function(){
+    event.preventDefault();
+    var initialsStart = $(".initial").val();
+    initials = initialsStart.substring(0,3);
+    console.log(initials);
+    console.log(this);
+
+    setHighScore(initials);
+});
+
+$(".initial").keyup(function() {
+
+    let input = $(".initial").val();
+
+    if (input.length < 3) {
+        $("#submit-btn").prop("disabled", true);
+    } else {
+        $("#submit-btn").prop("disabled", false);
+    }
+});
+
 // 
 // getQuestions();
 // Write to localStorage ********************************
@@ -159,3 +177,5 @@ var readFromStorage = function() {
 }
 
 readFromStorage();
+
+$("#submit-btn").prop("disabled", true);
