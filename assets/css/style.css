@@ -18,9 +18,12 @@ body {
     background-size: cover;
     background-position:center;
     color: gainsboro;
+<<<<<<< HEAD
     height: 80px;
     background-color: black;
     color: rgb(156, 10, 137);
+=======
+>>>>>>> develop
 }
 .header-container h1 {
     color: #83040a;
@@ -47,8 +50,11 @@ body {
 #start {
     background-color: #83040a;
     color: black;
+<<<<<<< HEAD
     background-color: rgb(142, 214, 33);
     color: brown;
+=======
+>>>>>>> develop
     border-radius: 5px;
     width: 90%;
     margin-left: 15px;
