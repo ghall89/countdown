@@ -99,6 +99,8 @@ endQuiz = function() {
     } else {
       gifSearch = "congratulations ";
       score = score + time;
+      var modal = $(".modal");
+      modal.show();
       console.log(`Score: ${score}`);
       
       
@@ -176,6 +178,7 @@ $("#submit-btn").on("click", function(){
     initials = initialsStart.substring(0,3);
     console.log(initials);
     console.log(this);
+    $(".modal").hide();
 
     setHighScore(initials);
 });
