@@ -18,6 +18,9 @@ body {
     background-size: cover;
     background-position:center;
     color: gainsboro;
+    height: 80px;
+    background-color: black;
+    color: rgb(156, 10, 137);
 }
 .header-container h1 {
     color: #83040a;
@@ -44,9 +47,13 @@ body {
 #start {
     background-color: #83040a;
     color: black;
+    background-color: rgb(142, 214, 33);
+    color: brown;
     border-radius: 5px;
     width: 90%;
     margin-left: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
 }
 .questions-container {
     border: 1px solid black;
@@ -61,7 +68,7 @@ body {
     border: 1px solid blueviolet;
     height: 200px;
     background-color: black;
-    color: gainsboro;
+    color: rgb(4, 150, 11);
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
@@ -69,7 +76,6 @@ body {
 .answers-container button {
     margin-right: 5px;
     border-radius: 3px;
-    color: purple;
     font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -81,14 +87,16 @@ body {
     height: 200px;
     text-align: center;
     font-size: 4rem;
-    color: gainsboro;
+    color:olive ;
     /* position: relative; 
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%); */
 }
 #distraction, #top5 {
-    color: gainsboro;
+    color: pink;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
 }
 .footer {
     border-top: 2px groove grey;
@@ -96,16 +104,19 @@ body {
     flex-wrap: wrap-reverse;
     justify-content: space-between;
     background-color: black;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 #copyright, #contributors {
     margin: 15px;
     font-weight: bold;
-    color: grey;
+    color: rgb(6, 80, 34);
 }
 #contributors a {
-    color: grey;
+    color: rgb(59, 46, 3);
     padding: 5px;
     margin-left: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #distraction, #top5 {
     background-color: black;
