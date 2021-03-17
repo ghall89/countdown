@@ -1,5 +1,5 @@
 body {
-    margin: 30px;
+    margin: 110px;
 }
 .container {
     width: 100%;
@@ -16,6 +16,8 @@ body {
     color: gainsboro;
 }
 .header-container h1 {
+    color: #83040a;
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
     position: relative; 
     top: 50%;
@@ -36,8 +38,8 @@ body {
     height: 30px;
 }
 #start {
-    background-color: greenyellow;
-    color: brown;
+    background-color: #83040a;
+    color: black;
     border-radius: 5px;
     width: 90%;
     margin-left: 15px;
@@ -47,7 +49,9 @@ body {
     min-height: 200px;
     text-align: center;
     background-color: black;
-    color:gainsboro;
+    color: #83040a;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
 }
 .answers-container {
     border: 1px solid blueviolet;
@@ -102,12 +106,17 @@ body {
     padding: 2px 16px;
     background-color: black;
     color: white;
+    text-align: center;
   }
-  .modal-body {padding: 2px 16px;}
+  .modal-body {
+      padding: 2px 16px;
+      display: flex;
+}
   .modal-footer {
     padding: 2px 16px;
     background-color: black;
     color: white;
+    margin: 110;
   }
   .modal-content {
     position: relative;
