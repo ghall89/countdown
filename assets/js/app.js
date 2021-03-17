@@ -133,36 +133,12 @@ const setHighScore = (initials) => {
 const displayHighScore = function() {
   $("#high-scores").empty();
 
-    while (highScoreList.length < 5) {
-        let highestScore = {
-            initials: "",
-            score: 0
-        };
-
-        let index;
-
-        for (let i = 0; i < scoreList.length; i++) {
-            let currentScore = scoreList[i];
-            console.log(currentScore);
-            
-            if (currentScore.score > highestScore.score) {
-                highestScore = currentScore;
-                index = i;
-            }
-            console.log(highestScore);
-    
-        }
-
-        highScoreList.push(highestScore);
-        scoreList.splice(scoreList[index], 1);
-        console.log(scoreList);
-        console.log(highScoreList);
-        
-    }
-
+    console.log(scoreList);
+    scoreList.sort((a,b) => {return b.score - a.score;});
+    console.log(scoreList);
 
   for (let i = 0; i < scoreList.length && i < 5; i++) {
-    $("#high-scores").append(`<li>${highScoreList[i].initials}, score: ${highScoreList[i].score}</li>`);
+    $("#high-scores").append(`<li>${scoreList[i].initials}, score: ${scoreList[i].score}</li>`);
   }
 }
 
