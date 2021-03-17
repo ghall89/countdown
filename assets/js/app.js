@@ -1,9 +1,9 @@
 
 let score = 0;
-scoreList = [];
+let scoreList = [];
+let highScoreList = [];
 let time;
 let timer;
-scoreList = [];
 
 const decrement = function() {
     if (time > 0) {
@@ -40,7 +40,7 @@ const getQuestions = function() {
 };
 
 const showQuestions = function(data, questionNumber) {
-    if (questionNumber == 15) {
+    if (questionNumber == 5) {
         endQuiz();
         return;
     }
@@ -99,12 +99,10 @@ endQuiz = function() {
     } else {
       gifSearch = "congratulations ";
       score = score + time;
+      var modal = $(".modal");
+      modal.show();
       console.log(`Score: ${score}`);
       
-      
-      // !!== hardcoded initials, make sure to use value of user input from modal when that's added ==!!
-      let initials = "ABC"
-      setHighScore(initials);
       
     }
 
@@ -134,7 +132,12 @@ const setHighScore = (initials) => {
 
 const displayHighScore = function() {
   $("#high-scores").empty();
-  for (let i = 0; i < 5; i++) {
+
+    console.log(scoreList);
+    scoreList.sort((a,b) => {return b.score - a.score;});
+    console.log(scoreList);
+
+  for (let i = 0; i < scoreList.length && i < 5; i++) {
     $("#high-scores").append(`<li>${scoreList[i].initials}, score: ${scoreList[i].score}</li>`);
   }
 }
@@ -144,6 +147,29 @@ $("#start").on("click", function(){
   $(".countdown-counter").empty();
   getQuestions();
 });
+
+$("#submit-btn").on("click", function(){
+    event.preventDefault();
+    var initialsStart = $(".initial").val();
+    initials = initialsStart.substring(0,3);
+    console.log(initials);
+    console.log(this);
+    $(".modal").hide();
+
+    setHighScore(initials);
+});
+
+$(".initial").keyup(function() {
+
+    let input = $(".initial").val();
+
+    if (input.length < 3) {
+        $("#submit-btn").prop("disabled", true);
+    } else {
+        $("#submit-btn").prop("disabled", false);
+    }
+});
+
 // 
 // getQuestions();
 // Write to localStorage ********************************
@@ -156,7 +182,13 @@ var writeToStorage = function() {
 var readFromStorage = function() {
     scoreList = JSON.parse(localStorage.getItem("scoreList"));
     console.log(scoreList);
-    displayHighScore();
+    if (scoreList) {
+      displayHighScore();
+    } else {
+      scoreList = [];
+    }
 }
 
 readFromStorage();
+
+$("#submit-btn").prop("disabled", true);

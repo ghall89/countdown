@@ -12,11 +12,16 @@ body {
 .header-container {
     margin: 0;
     border-bottom: 2px solid grey;
-    height: 80px;
-    background-color: black;
-    color: white;
+    height: 400px;
+    width: 1400px;
+    background: url("https://cdn.pixabay.com/photo/2018/07/04/22/55/fantasy-3517206_960_720.jpg");
+    background-size: cover;
+    background-position:center;
+    color: gainsboro;
 }
 .header-container h1 {
+    color: #83040a;
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
     position: relative; 
     top: 50%;
@@ -37,8 +42,8 @@ body {
     height: 30px;
 }
 #start {
-    background-color: rgb(142, 214, 33);
-    color: brown;
+    background-color: #83040a;
+    color: black;
     border-radius: 5px;
     width: 90%;
     margin-left: 15px;
