@@ -1,5 +1,6 @@
 body {
-    margin: 110px;
+    margin: 125px;
+    position: relative;
 }
 .container {
     width: 100%;
