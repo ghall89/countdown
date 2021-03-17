@@ -12,9 +12,12 @@ body {
 .header-container {
     margin: 0;
     border-bottom: 2px solid grey;
-    height: 80px;
-    background-color: black;
-    color: rgb(156, 10, 137);
+    height: 400px;
+    width: 1400px;
+    background: url("https://cdn.pixabay.com/photo/2018/07/04/22/55/fantasy-3517206_960_720.jpg");
+    background-size: cover;
+    background-position:center;
+    color: gainsboro;
 }
 .header-container h1 {
     color: #83040a;

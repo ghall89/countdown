@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>The countDown</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+
 <body>
     <div class="container g-0">
         <!-- Title bar across the top -->
         <div class="row g-0">
-            <img srcset="https://cdn.pixabay.com/photo/2018/07/04/22/55/fantasy-3517206_960_720.jpg 1x, https://cdn.pixabay.com/photo/2018/07/04/22/55/fantasy-3517206_1280.jpg 1.333x" src="https://cdn.pixabay.com/photo/2018/07/04/22/55/fantasy-3517206_960_720.jpg" alt="Fantasy, Clock, Time, Light, Magic, Dream, Surreal" width="960" height="441.311676371438">
             <div class="col-12 header-container">
                 <h1>countDown</h2>
             </div>
@@ -39,7 +42,7 @@
                     <button id="start">Start</button>
                 </form>
             </div>
-            
+
             <!-- Center section with questions + giphy's -->
             <div class="col-6">
                 <div class="questions-container">
@@ -50,7 +53,7 @@
             <!-- Counter container -->
             <div class="col-3 counter-container">
                 <div class="countdown-counter">
-                    
+
                 </div>
             </div>
 
@@ -69,50 +72,52 @@
                     Video/clips can go here too that corresponds to correct/wrong answer.
                 </div>
             </div>
-            
+
             <!-- Top 5 high scores list goes here -->
             <div class="col-3" id="top5">
                 <h3>Top-5 High Scores</h3>
                 <ol id="high-scores"></ol>
             </div>
         </div>
+    </div>
 
-        <div class="row g-0">
-            <div class="footer">
-                <div id="copyright">
-                    <p>&copy; 2021 </p>
-                </div>
-                <div id="contributors">
-                    <a href="https://psingh0920.github.io/htang-porfolio/">Pritika Singh</a>
-                    <a href="https://ncortes85.github.io/htang-porfolio/">Nestor Cortes</a>
-                    <a href="https://htang2021.github.io/htang-porfolio/">Hung Tang</a>
-                    <a href="https://ghall89.github.io/portfolio-page/">Graham Hall</a>
-                    <a href="https://clayto30.github.io/professional-portfolio/">Clayton Goff</a>
-                </div>
+    <div class="row g-0">
+        <div class="footer">
+            <div id="copyright">
+                <p>&copy; 2021 </p>
+            </div>
+            <div id="contributors">
+                <a href="https://psingh0920.github.io/htang-porfolio/">Pritika Singh</a>
+                <a href="https://ncortes85.github.io/htang-porfolio/">Nestor Cortes</a>
+                <a href="https://htang2021.github.io/htang-porfolio/">Hung Tang</a>
+                <a href="https://ghall89.github.io/portfolio-page/">Graham Hall</a>
+                <a href="https://clayto30.github.io/professional-portfolio/">Clayton Goff</a>
             </div>
         </div>
     </div>
+    </div>
     <!-- Modal content -->
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close">&times;</span>
-            <h2>Congratulations!  You have made TOP 5!!!</h2>
-        </div>
-        <div class="modal-body">
-            <form class="modal-input">
-                <input type="text" class="initial">
-                <span id="new-score"></span>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <h4>Please enter your initials to go onto Hall of Fame!</h4>
-            <button type="submit">Submit</button>
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Congratulations! You have made TOP 5!!!</h2>
+            </div>
+            <div class="modal-body">
+                <form class="modal-input">
+                    <input type="text" class="initial">
+                    <span id="new-score"></span>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <h4>Please enter your initials to go onto Hall of Fame!</h4>
+                <button id="submit-btn" type="submit">Submit</button>
+            </div>
         </div>
     </div>
     <!-- End modal here -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/app.js"></script>
-    <!-- This script is temporary just to see how it looks-->
-
 </body>
+
 </html>
