@@ -1,5 +1,6 @@
 body {
-    margin: 110px;
+    margin: 125px;
+    position: relative;
 }
 .container {
     width: 100%;
@@ -11,8 +12,11 @@ body {
 .header-container {
     margin: 0;
     border-bottom: 2px solid grey;
-    height: 80px;
-    background-color: black;
+    height: 400px;
+    width: 1400px;
+    background: url("https://cdn.pixabay.com/photo/2018/07/04/22/55/fantasy-3517206_960_720.jpg");
+    background-size: cover;
+    background-position:center;
     color: gainsboro;
 }
 .header-container h1 {
@@ -59,10 +63,15 @@ body {
     background-color: black;
     color: gainsboro;
     text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
 }
 .answers-container button {
     margin-right: 5px;
     border-radius: 3px;
+    color: purple;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .counter-container {
     background-color: black;
