@@ -50,7 +50,7 @@ body {
     min-height: 200px;
     text-align: center;
     background-color: black;
-    color: #09ac3a;
+    color: #83040a;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
 }
@@ -58,7 +58,7 @@ body {
     border: 1px solid blueviolet;
     height: 200px;
     background-color: black;
-    color: gainsboro;
+    color: rgb(4, 150, 11);
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
