@@ -63,10 +63,15 @@ body {
     background-color: black;
     color: gainsboro;
     text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
 }
 .answers-container button {
     margin-right: 5px;
     border-radius: 3px;
+    color: purple;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .counter-container {
     background-color: black;
