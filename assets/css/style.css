@@ -1,6 +1,7 @@
 body {
     margin: 125px;
     position: relative;
+
 }
 .container {
     width: 100%;
@@ -29,7 +30,7 @@ body {
     transform: translate(-50%, -50%);
 }
 .filter-group {
-    border: 1px solid blue;
+    border: 1px solid #83040a;
     min-height: 200px;
     background-color: black;
 }
@@ -60,7 +61,6 @@ body {
     font-size: 20px;
 }
 .answers-container {
-    border: 1px solid blueviolet;
     height: 200px;
     background-color: black;
     color:#83040a ;
@@ -76,7 +76,7 @@ body {
 }
 .counter-container {
     background-color: black;
-    border: 1px solid blue;
+    border: 1px solid #83040a;
 }
 .countdown-counter {
     height: 200px;
@@ -91,10 +91,10 @@ body {
 #distraction, #top5 {
     color: #83040a;
     font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .footer {
-    border-top: 2px groove grey;
+    border-top: 2px groove #83040a;
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: space-between;
@@ -115,7 +115,6 @@ body {
 }
 #distraction, #top5 {
     background-color: black;
-    border: 1px solid blue;
 }
 .modal-header { 
     padding: 2px 16px;
@@ -148,4 +147,11 @@ body {
   @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border: 3px solid #83040a; 
   }
