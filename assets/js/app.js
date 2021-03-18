@@ -196,6 +196,17 @@ $(".initial").keyup(function () {
     }
 });
 
+// $(".modal-input").on("submit", function() {
+//     event.preventDefault();
+
+// })
+
+// $(".initial").keyup(function (event) {
+//     if (event.keyCode===13) {
+//         $("#submit-btn").click();
+//     }
+// });
+
 // 
 // getQuestions();
 // Write to localStorage ********************************
