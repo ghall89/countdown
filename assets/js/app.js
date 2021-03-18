@@ -78,6 +78,26 @@ const showQuestions = function (data, questionNumber) {
         $(".answers-container").append(button);
     }
 
+    diceroll =Math.floor(Math.random() * 3)
+    console.log(diceroll);
+    if (diceroll == 2) {
+        $('#distraction').empty();
+        let gifSearch = "dancing"
+        fetch(`https://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN`)
+        .then(function (response) {
+            return response.json();
+        })
+
+        .then(function (response) {
+            let num2 = Math.floor(Math.random() * 50);
+            var gifImg = document.createElement('img');
+            gifImg.setAttribute('src', response.data[num2].images.fixed_height.url);
+            $('#distraction').append(gifImg);
+        });
+    } else {
+        $('#distraction').text("Whatever you do! Don't look here! Stay focused on the questions!");
+    }
+
 }
 // call the times up or congralutations/high score modal
 endQuiz = function () {
@@ -87,7 +107,8 @@ endQuiz = function () {
     $(".selections > form > select").prop("disabled", false);
     $(".questions-container").empty();
     $(".answers-container").empty();
-
+    $("#distraction").empty();
+    
     score = score + time;
 
     let gifSearch = "";
