@@ -157,6 +157,10 @@ $("#submit-btn").on("click", function () {
     setHighScore(initials);
 });
 
+$(".close").on("click", function() {
+    $(".modal").hide();
+});
+
 $("#alert-btn").on("click", function () {
     $("#alert-modal").hide();
 });
