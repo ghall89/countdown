@@ -140,6 +140,10 @@ body {
     color: white;
     margin: 110;
   }
+  #new-score {
+      color: white;
+      margin-left: 20px;
+  }
   .modal-content {
     position: relative;
     background-color: #83040a;
