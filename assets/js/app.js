@@ -120,7 +120,7 @@ endQuiz = function () {
         score = score + time;
         var modal = $("#score-modal");
         modal.show();
-        $("#new-score").text(`Score: ${score}`)
+        $("#new-score").text(`Score: ${score}`);
     }
     
     fetch(`https://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN`)
@@ -184,9 +184,14 @@ $("#start").on("click", function () {
 // submit button on high score modal
 $("#submit-btn").on("click", function () {
     event.preventDefault();
-    var initialsStart = $(".initial").val();
-    initials = initialsStart.substring(0, 3);
-
+    var initials = $(".initial").val();
+    if (initials.length != 3) {
+        $("#new-score").text("Please enter 3 characters!");
+        setTimeout(function(){
+            $("#new-score").text(`Score: ${score}`);
+        }, 1000);
+        return;
+    }
     $(".modal").hide();
 
     setHighScore(initials);
@@ -202,21 +207,10 @@ $("#alert-btn").on("click", function () {
     $("#alert-modal").hide();
 });
 
-// detect length of string is equal to 3 and enable submit button 
-$(".initial").keyup(function () {
 
-    let input = $(".initial").val();
-
-    if (input.length === 3) {
-        $("#submit-btn").prop("disabled", false);
-    } else {
-        $("#submit-btn").prop("disabled", true);
-    }
-});
 // -- end event listeners --
 
 
 
 // read high scores and ensure submit button is disabled when page is loaded
 readFromStorage();
-$("#submit-btn").prop("disabled", true);
