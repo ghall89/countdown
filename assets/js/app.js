@@ -5,6 +5,7 @@ let highScoreList = [];
 let time;
 let timer;
 
+// timer
 const decrement = function () {
     if (time > 0) {
         time = time - 1;
@@ -15,9 +16,7 @@ const decrement = function () {
 
 }
 
-// get the difficulty from the select input
-
-
+// get the difficulty and category from the select inputs and make an API call
 const getQuestions = function () {
     var difficulty = $("#difficulty").val()
     var questionCategory = $("#category").val()
@@ -38,8 +37,9 @@ const getQuestions = function () {
     });
 };
 
+// display and iterate through questions until all questions are answered or time runs out
 const showQuestions = function (data, questionNumber) {
-    if (questionNumber == 5) {
+    if (questionNumber == data.results.length) {
         endQuiz();
         return;
     }
@@ -77,7 +77,7 @@ const showQuestions = function (data, questionNumber) {
         })
         $(".answers-container").append(button);
     }
-
+    // randomly show distraction gif
     diceroll =Math.floor(Math.random() * 3)
     console.log(diceroll);
     if (diceroll == 2) {
@@ -99,7 +99,7 @@ const showQuestions = function (data, questionNumber) {
     }
 
 }
-// call the times up or congralutations/high score modal
+// call the times up or congratulations/high score modal
 endQuiz = function () {
     clearInterval(timer);
 
@@ -140,7 +140,7 @@ endQuiz = function () {
 
 const setHighScore = (initials) => {
     let highScore = {
-        initials: initials,
+        initials: initials.toUpperCase(),
         score: score
     };
     console.log(highScore);
@@ -195,17 +195,6 @@ $(".initial").keyup(function () {
         $("#submit-btn").prop("disabled", false);
     }
 });
-
-// $(".modal-input").on("submit", function() {
-//     event.preventDefault();
-
-// })
-
-// $(".initial").keyup(function (event) {
-//     if (event.keyCode===13) {
-//         $("#submit-btn").click();
-//     }
-// });
 
 // 
 // getQuestions();
