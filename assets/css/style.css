@@ -1,19 +1,17 @@
 body {
-    margin: 135px;
     position: relative;
-
 }
 .container {
     width: 100%;
-    margin: 0;
-    border: 2px solid #83040a;
+    margin: 0 auto;
+    /* border: 2px solid #83040a; */
 }
 .row {
     width: 100%;
 }
 .header-container {
     margin: 0;
-    border-bottom: 2px solid #83040a;
+    /* border-bottom: 2px solid #83040a; */
     height: 400px;
     width: 1400px;
     background: url("https://cdn.pixabay.com/photo/2018/07/04/22/55/fantasy-3517206_960_720.jpg");
@@ -62,7 +60,7 @@ body {
     font-size: 20px;
 }
 .answers-container {
-    height: 200px;
+    height: 100%;
     background-color: black;
     color:#83040a ;
     text-align: center;
@@ -100,7 +98,7 @@ body {
     border: 2px solid #83040a;
 }
 .footer {
-    border-top: 2px groove #83040a;
+    /* border-top: 2px groove #83040a; */
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: space-between;
@@ -161,8 +159,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 200px;
-    border: 2px solid #83040a; 
+    /* border: 2px solid #83040a; */ 
   }
   .col-6 {
-      border: 2px solid #83040a;
+      /* border: 2px solid #83040a; */
   }
