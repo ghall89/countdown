@@ -1,11 +1,11 @@
-
+// global variables
 let score = 0;
 let scoreList = [];
 let highScoreList = [];
 let time;
 let timer;
 
-// timer
+// countdown timer
 const decrement = function () {
     if (time > 0) {
         time = time - 1;
@@ -24,7 +24,6 @@ const getQuestions = function () {
     fetch(apiVariable).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data);
                 let questionNumber = 0;
                 time = 150;
                 $(".countdown-counter").empty().append(time);
@@ -59,7 +58,7 @@ const showQuestions = function (data, questionNumber) {
         item.push(answers[num]);
         answers.splice(num, 1);
     }
-    // create buttons
+    // create answer buttons
     $(".answers-container").empty();
     for (let i = 0; i < item.length; i++) {
         const button = $("<button>").html(item[i]).click(function () {
@@ -77,9 +76,9 @@ const showQuestions = function (data, questionNumber) {
         })
         $(".answers-container").append(button);
     }
+    
     // randomly show distraction gif
     diceroll =Math.floor(Math.random() * 3)
-    console.log(diceroll);
     if (diceroll == 2) {
         $('#distraction').empty();
         let gifSearch = "dancing"
@@ -108,7 +107,7 @@ endQuiz = function () {
     $(".questions-container").empty();
     $(".answers-container").empty();
     $("#distraction").empty();
-    
+    // calculate final score
     score = score + time;
 
     let gifSearch = "";
@@ -122,14 +121,12 @@ endQuiz = function () {
         var modal = $("#score-modal");
         modal.show();
         $("#new-score").text(`Score: ${score}`)
-        console.log(`Score: ${score}`);
     }
-
+    
     fetch(`https://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN`)
         .then(function (response) {
             return response.json();
         })
-
         .then(function (response) {
             let num2 = Math.floor(Math.random() * 50);
             var gifImg = document.createElement('img');
@@ -138,66 +135,28 @@ endQuiz = function () {
         });
 };
 
+// saves user initials and final score to high score array
 const setHighScore = (initials) => {
     let highScore = {
         initials: initials.toUpperCase(),
         score: score
     };
-    console.log(highScore);
     scoreList.push(highScore);
     writeToStorage();
     displayHighScore();
 }
 
+// display top - 5 high scores in 
 const displayHighScore = function () {
     $("#high-scores").empty();
 
-    console.log(scoreList);
     scoreList.sort((a, b) => { return b.score - a.score; });
-    console.log(scoreList);
 
     for (let i = 0; i < scoreList.length && i < 5; i++) {
         $("#high-scores").append(`<li>${scoreList[i].initials}, score: ${scoreList[i].score}</li>`);
     }
-}
+};
 
-$("#start").on("click", function () {
-    event.preventDefault();
-    $(".countdown-counter").empty();
-    getQuestions();
-});
-
-$("#submit-btn").on("click", function () {
-    event.preventDefault();
-    var initialsStart = $(".initial").val();
-    initials = initialsStart.substring(0, 3);
-    console.log(initials);
-    console.log(this);
-    $(".modal").hide();
-
-    setHighScore(initials);
-});
-
-$(".close").on("click", function() {
-    $(".modal").hide();
-});
-
-$("#alert-btn").on("click", function () {
-    $("#alert-modal").hide();
-});
-$(".initial").keyup(function () {
-
-    let input = $(".initial").val();
-
-    if (input.length < 3) {
-        $("#submit-btn").prop("disabled", true);
-    } else {
-        $("#submit-btn").prop("disabled", false);
-    }
-});
-
-// 
-// getQuestions();
 // Write to localStorage ********************************
 // Pass a full object array nameObjArry = [{initial: xyz, score: 123}, {initial: abc, score: 345}, .....]
 var writeToStorage = function () {
@@ -207,7 +166,6 @@ var writeToStorage = function () {
 // Return what's stored in localStorage *******************************
 var readFromStorage = function () {
     scoreList = JSON.parse(localStorage.getItem("scoreList"));
-    console.log(scoreList);
     if (scoreList) {
         displayHighScore();
     } else {
@@ -215,6 +173,50 @@ var readFromStorage = function () {
     }
 }
 
-readFromStorage();
+// -- start event listeners --
+// start button click and begin game
+$("#start").on("click", function () {
+    event.preventDefault();
+    $(".countdown-counter").empty();
+    getQuestions();
+});
 
+// submit button on high score modal
+$("#submit-btn").on("click", function () {
+    event.preventDefault();
+    var initialsStart = $(".initial").val();
+    initials = initialsStart.substring(0, 3);
+
+    $(".modal").hide();
+
+    setHighScore(initials);
+});
+
+// close button on modals
+$(".close").on("click", function() {
+    $(".modal").hide();
+});
+
+// ok button on error modal
+$("#alert-btn").on("click", function () {
+    $("#alert-modal").hide();
+});
+
+// detect length of string is equal to 3 and enable submit button 
+$(".initial").keyup(function () {
+
+    let input = $(".initial").val();
+
+    if (input.length === 3) {
+        $("#submit-btn").prop("disabled", false);
+    } else {
+        $("#submit-btn").prop("disabled", true);
+    }
+});
+// -- end event listeners --
+
+
+
+// read high scores and ensure submit button is disabled when page is loaded
+readFromStorage();
 $("#submit-btn").prop("disabled", true);
