@@ -1,17 +1,19 @@
 body {
-    margin: 125px;
+    margin: 135px;
     position: relative;
+
 }
 .container {
     width: 100%;
     margin: 0;
+    border: 2px solid #83040a;
 }
 .row {
     width: 100%;
 }
 .header-container {
     margin: 0;
-    border-bottom: 2px solid grey;
+    border-bottom: 2px solid #83040a;
     height: 400px;
     width: 1400px;
     background: url("https://cdn.pixabay.com/photo/2018/07/04/22/55/fantasy-3517206_960_720.jpg");
@@ -29,7 +31,7 @@ body {
     transform: translate(-50%, -50%);
 }
 .filter-group {
-    border: 1px solid blue;
+    border: 2px solid #83040a;
     min-height: 200px;
     background-color: black;
 }
@@ -38,7 +40,7 @@ body {
     margin: 15px 10px 10px 15px;
     width: 90%;
     border-radius: 5px;
-    background-color: cornsilk;
+    background-color: #83040a;
     height: 30px;
 }
 #start {
@@ -47,75 +49,80 @@ body {
     border-radius: 5px;
     width: 90%;
     margin-left: 15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
 }
 .questions-container {
-    border: 1px solid black;
+    border: 2px solid #83040a;
     min-height: 200px;
     text-align: center;
     background-color: black;
-    color: #09ac3a;
+    color: #83040a;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
 }
 .answers-container {
-    border: 1px solid blueviolet;
     height: 200px;
     background-color: black;
-    color: gainsboro;
+    color:#83040a ;
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
+    border: 2px solid #83040a;
 }
 .answers-container button {
     margin-right: 5px;
     border-radius: 3px;
     font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:black;
+    background-color: #83040a;
 }
 .counter-container {
     background-color: black;
-    border: 1px solid blue;
+    border: 2px solid #83040a;
 }
 .countdown-counter {
     height: 200px;
     text-align: center;
     font-size: 4rem;
-    color:olive ;
+    color:#83040a ;
     /* position: relative; 
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%); */
 }
 #distraction, #top5 {
-    color: pink;
+    color: #83040a;
     font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    border: 2px solid #83040a;
 }
 .footer {
-    border-top: 2px groove grey;
+    border-top: 2px groove #83040a;
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: space-between;
     background-color: black;
     font-size: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0;
+    width: 100%;
 }
 #copyright, #contributors {
     margin: 15px;
     font-weight: bold;
-    color: rgb(6, 80, 34);
+    color: #83040a;
 }
 #contributors a {
-    color: rgb(59, 46, 3);
+    color: #83040a;
     padding: 5px;
     margin-left: 5px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 #distraction, #top5 {
     background-color: black;
-    border: 1px solid blue;
 }
 .modal-header { 
     padding: 2px 16px;
@@ -148,4 +155,14 @@ body {
   @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border: 2px solid #83040a; 
+  }
+  .col-6 {
+      border: 2px solid #83040a;
   }
