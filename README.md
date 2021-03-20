@@ -16,7 +16,7 @@ I am a developer, a doctor, a day-trader, I want to take my mind off of my work 
 - Players that made top 5 should be celebrated
 
 ## Product Landing Page
-![](assets/images/countDown.png)
+![](assets/images/countDown.png) - Need to insert image!!
 
 ## Github Repository
 All files and changes made are located on github at the following location:
