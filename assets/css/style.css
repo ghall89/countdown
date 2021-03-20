@@ -60,6 +60,7 @@ body {
     font-size: 20px;
 }
 .answers-container {
+    min-height: 230px;
     height: 100%;
     background-color: black;
     color:#83040a ;
