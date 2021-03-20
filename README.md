@@ -39,10 +39,10 @@ This instruction below assumes that a project and repo were created early on and
 https://htang2021.github.io/countDown/
 
 ## Contributors
-[Graham Hall](https://ghall89.github.io/portfolio-page/)/
-[Clayton Goff](https://clayto30.github.io/professional-portfolio/)/
-[Pritika Singh](https://psingh0920.github.io/htang-porfolio/)/
-[Nestor Cortes](https://ncortes85.github.io/htang-porfolio/)/
+[Graham Hall](https://ghall89.github.io/portfolio-page/) |
+[Clayton Goff](https://clayto30.github.io/professional-portfolio/) |
+[Pritika Singh](https://psingh0920.github.io/htang-porfolio/) |
+[Nestor Cortes](https://ncortes85.github.io/htang-porfolio/) |
 [Hung Tang](https://htang2021.github.io/htang-porfolio/)
 
 ## License & Credit
