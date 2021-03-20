@@ -13,8 +13,7 @@ const decrement = function () {
     } else if (time <= 0) {
         endQuiz();
     }
-
-}
+};
 
 // get the difficulty and category from the select inputs and make an API call
 const getQuestions = function () {
@@ -97,7 +96,7 @@ const showQuestions = function (data, questionNumber) {
         $('#distraction').text("Whatever you do! Don't look here! Stay focused on the questions!");
     }
 
-}
+};
 // call the times up or congratulations/high score modal
 endQuiz = function () {
     clearInterval(timer);
@@ -144,7 +143,7 @@ const setHighScore = (initials) => {
     scoreList.push(highScore);
     writeToStorage();
     displayHighScore();
-}
+};
 
 // display top - 5 high scores in 
 const displayHighScore = function () {
@@ -161,7 +160,7 @@ const displayHighScore = function () {
 // Pass a full object array nameObjArry = [{initial: xyz, score: 123}, {initial: abc, score: 345}, .....]
 var writeToStorage = function () {
     localStorage.setItem("scoreList", JSON.stringify(scoreList));
-}
+};
 
 // Return what's stored in localStorage *******************************
 var readFromStorage = function () {
@@ -171,7 +170,7 @@ var readFromStorage = function () {
     } else {
         scoreList = [];
     }
-}
+};
 
 // -- start event listeners --
 // start button click and begin game
@@ -210,7 +209,5 @@ $("#alert-btn").on("click", function () {
 
 // -- end event listeners --
 
-
-
-// read high scores and ensure submit button is disabled when page is loaded
+// get high scores on page load
 readFromStorage();
