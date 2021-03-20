@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <title>The countDown</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
@@ -61,7 +59,7 @@
 
         </div>
 
-        <div class="row g-0">
+        <div class="row g-0 d-flex align-items-stretch">
             <!-- Where distraction giphy's goes -->
             <div class="col-3" id="distraction">
                 Whatever you do! Don't look here! Stay focused on the questions!
@@ -71,8 +69,8 @@
             <div class="col-6">
                 <div class="answers-container">
                     <div class="center">
-                    Come on hot shot, try me!!! <br>
-                    Or are you too scared???
+                        Come on hot shot, try me!!! <br>
+                        Or are you too scared???
                     </div>
                 </div>
             </div>
@@ -83,22 +81,24 @@
                 <ol id="high-scores"></ol>
             </div>
         </div>
-    </div>
-
-    <div class="row g-0">
-        <div class="footer">
-            <div id="copyright">
-                <p>&copy; 2021 </p>
-            </div>
-            <div id="contributors">
-                <a href="https://psingh0920.github.io/htang-porfolio/">Pritika Singh</a>
-                <a href="https://ncortes85.github.io/htang-porfolio/">Nestor Cortes</a>
-                <a href="https://htang2021.github.io/htang-porfolio/">Hung Tang</a>
-                <a href="https://ghall89.github.io/portfolio-page/">Graham Hall</a>
-                <a href="https://clayto30.github.io/professional-portfolio/">Clayton Goff</a>
+        
+        <div class="row g-0">
+            <div class="footer">
+                <div id="copyright">
+                    <p>&copy; 2021 </p>
+                </div>
+                <div id="contributors">
+                    <a href="https://psingh0920.github.io/htang-porfolio/">Pritika Singh</a>
+                    <a href="https://ncortes85.github.io/htang-porfolio/">Nestor Cortes</a>
+                    <a href="https://htang2021.github.io/htang-porfolio/">Hung Tang</a>
+                    <a href="https://ghall89.github.io/portfolio-page/">Graham Hall</a>
+                    <a href="https://clayto30.github.io/professional-portfolio/">Clayton Goff</a>
+                </div>
             </div>
         </div>
     </div>
+
+
     </div>
     <!-- Modal content -->
     <div id="score-modal" class="modal">
@@ -110,7 +110,7 @@
             <form class="modal-input">
                 <div class="modal-body">
 
-                    <input type="text" class="initial">
+                    <input type="text" maxlength="3" class="initial">
                     <span id="new-score"></span>
 
                 </div>
