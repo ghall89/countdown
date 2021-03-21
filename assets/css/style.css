@@ -1,6 +1,7 @@
 body {
     position: relative;
 }
+/* Outer most container of the page */
 .container {
     width: 100%;
     margin: 0 10px;
