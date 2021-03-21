@@ -55,7 +55,7 @@ body {
     font-size: 20px;
 }
 .questions-container {
-    border: 2px solid #a50b13;
+    border: none;
     min-height: 210px;
     text-align: center;
     background-color: black;
@@ -71,7 +71,8 @@ body {
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
-    border: 2px solid #a50b13;
+    border: none
+    flex: auto;
 }
 .answers-container button {
     margin-right: 5px;
@@ -176,5 +177,6 @@ body {
     /* border: 2px solid #a50b13; */ 
   }
   .col-6 {
-      /* border: 2px solid #a50b13; */
+      border: 2px solid #a50b13;
+      background-color: black;
   }

@@ -3,6 +3,39 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Container for flexboxes */
+        .container g-0 {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        
+        /* Create four equal columns */
+        .col-6 {
+          flex: 25%;
+          padding: 20px;
+        }
+        
+        /* On screens that are 992px wide or less, go from four columns to two columns */
+        @media screen and (max-width: 992px) {
+          .container g-0 {
+            flex: 50%;
+
+          }
+        }
+        
+        /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+          .col-6{
+            flex-direction: column;
+          }
+        }
+        </style>
     <title>The countDown</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
