@@ -1,4 +1,4 @@
 .DS_Store
-*.log
+debug.log
 .idea
 node_modules
