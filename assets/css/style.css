@@ -3,15 +3,15 @@ body {
 }
 .container {
     width: 100%;
-    margin: 0 auto;
-    /* border: 2px solid #83040a; */
+    margin: 0 10px;
+    /* border: 2px solid #a50b13; */
 }
 .row {
     width: 100%;
 }
 .header-container {
     margin: 0;
-    /* border-bottom: 2px solid #83040a; */
+    /* border-bottom: 2px solid #a50b13; */
     height: 400px;
     width: 1400px;
     background: url("https://cdn.pixabay.com/photo/2018/07/04/22/55/fantasy-3517206_960_720.jpg");
@@ -20,8 +20,9 @@ body {
     color: gainsboro;
 }
 .header-container h1 {
-    color: #83040a;
+    color: #a50b13;
     font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
     text-align: center;
     position: relative; 
     top: 50%;
@@ -29,7 +30,7 @@ body {
     transform: translate(-50%, -50%);
 }
 .filter-group {
-    border: 2px solid #83040a;
+    border: 2px solid #a50b13;
     min-height: 200px;
     background-color: black;
 }
@@ -38,11 +39,13 @@ body {
     margin: 15px 10px 10px 15px;
     width: 90%;
     border-radius: 5px;
-    background-color: #83040a;
+    background-color: #a50b13;
     height: 30px;
+    font-weight: bolder;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 #start {
-    background-color: #83040a;
+    background-color: #a50b13;
     color: black;
     border-radius: 5px;
     width: 90%;
@@ -51,11 +54,11 @@ body {
     font-size: 20px;
 }
 .questions-container {
-    border: 2px solid #83040a;
+    border: 2px solid #a50b13;
     min-height: 200px;
     text-align: center;
     background-color: black;
-    color: #83040a;
+    color: #a50b13;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
 }
@@ -63,11 +66,11 @@ body {
     min-height: 230px;
     height: 100%;
     background-color: black;
-    color:#83040a ;
+    color:#a50b13 ;
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
-    border: 2px solid #83040a;
+    border: 2px solid #a50b13;
 }
 .answers-container button {
     margin-right: 5px;
@@ -75,31 +78,35 @@ body {
     font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color:black;
-    background-color: #83040a;
+    background-color: #a50b13;
 }
 .counter-container {
     background-color: black;
-    border: 2px solid #83040a;
+    border: 2px solid #a50b13;
 }
 .countdown-counter {
     height: 200px;
     text-align: center;
     font-size: 4rem;
-    color:#83040a ;
-    /* position: relative; 
+    color:#a50b13 ;
+    position: relative; 
     top: 50%;
     left: 50%; 
-    transform: translate(-50%, -50%); */
+    transform: translate(-50%, -50%);
+}
+.countdown-counter img {
+    height: 200px;
+    width: auto;
 }
 #distraction, #top5 {
-    color: #83040a;
+    color: #a50b13;
     font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
-    border: 2px solid #83040a;
+    border: 2px solid #a50b13;
 }
 .footer {
-    /* border-top: 2px groove #83040a; */
+    /* border-top: 2px groove #a50b13; */
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: space-between;
@@ -112,10 +119,10 @@ body {
 #copyright, #contributors {
     margin: 15px;
     font-weight: bold;
-    color: #83040a;
+    color: #a50b13;
 }
 #contributors a {
-    color: #83040a;
+    color: #a50b13;
     padding: 5px;
     margin-left: 5px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -142,10 +149,11 @@ body {
   #new-score {
       color: white;
       margin-left: 20px;
+      font-size: xx-large;
   }
   .modal-content {
     position: relative;
-    background-color: #83040a;
+    background-color: #a50b13;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
@@ -164,8 +172,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 200px;
-    /* border: 2px solid #83040a; */ 
+    /* border: 2px solid #a50b13; */ 
   }
   .col-6 {
-      /* border: 2px solid #83040a; */
+      /* border: 2px solid #a50b13; */
   }
