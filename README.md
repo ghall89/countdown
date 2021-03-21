@@ -16,7 +16,17 @@ I am a developer, a doctor, a day-trader, I want to take my mind off of my work 
 - Players that made top 5 should be celebrated
 
 ## Product Landing Page
-![](assets/images/countDown.png) - Need to insert image!!
+![](./assets/images/countDownMainPage.png)
+
+## Usage Instruction
+
+1. Select the subject of the game from the pull-down menu on the left side of the page.
+2. Select difficulty of the game from the pull-down menu.
+3. Click on "Start" button
+4. Questions will be shown in the center of the page.  Answer the questions accordingly.
+5. Pay attention to the countdown timer!
+6. Once you complete the game, if you make top-5, you will be prompted to enter your initials and be listed in the Top-5 High Scores list.
+7. Continue the game 10 times and try to beat your scores.
 
 ## Github Repository
 All files and changes made are located on github at the following location:
