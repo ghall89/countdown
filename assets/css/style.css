@@ -1,11 +1,12 @@
-/* body {
-    position: relative;
-} */
-/* Outer most container of the page */
+/* remove browser defauts **********/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 .container {
     max-width: 100%;
     margin: 0;
-    border: 5px solid blue;
 }
 .row {
     width: 100%;
