@@ -84,6 +84,7 @@
 .answers-container button {
     margin-right: 5px;
     border-radius: 3px;
+    padding: 7px;
     font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color:black;
@@ -165,6 +166,11 @@
     background-color: black;
     color: white;
     margin: 110;
+  }
+  .modal-footer button {
+      font: xx-large;
+      font-weight: bold;
+      padding: 5px;
   }
   #new-score {
       color: white;
