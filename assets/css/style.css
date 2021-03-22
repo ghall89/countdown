@@ -1,10 +1,11 @@
-body {
+/* body {
     position: relative;
-}
+} */
 /* Outer most container of the page */
 .container {
     width: 100%;
-    margin: 0 10px;
+    margin: 0;
+    border: 5px solid blue;
 }
 .row {
     width: 100%;
@@ -12,7 +13,7 @@ body {
 .header-container {
     margin: 0;
     height: 400px;
-    width: 1400px;
+    width: 100%;
     background: url("https://cdn.pixabay.com/photo/2018/07/04/22/55/fantasy-3517206_960_720.jpg");
     background-size: cover;
     background-position:center;
