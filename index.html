@@ -3,13 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The countDown</title>
+
+    <!-- Links to MDBootstrap, font-awesome, and native css -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
+    <!-- Outer most container -->
     <div class="container g-0">
         <!-- Title bar across the top -->
         <div class="row g-0">
@@ -20,7 +24,7 @@
 
         <!-- Left column with pull-down selection -->
         <div class="row g-0">
-            <div class="col-3 filter-group selections">
+            <div class="col-lg-3 col-sm-12 filter-group selections">
                 <form>
                     <select name="category" id="category">
                         <option value="9">General</option>
@@ -42,7 +46,7 @@
             </div>
 
             <!-- Center section with questions + giphy's -->
-            <div class="col-6">
+            <div class="col-lg-6 col-sm-8">
                 <div class="questions-container">
                     <div class="center">
                         You think you have what it takes?
@@ -51,9 +55,9 @@
             </div>
 
             <!-- Counter container -->
-            <div class="col-3 counter-container">
+            <div class="col-lg-3 col-sm-4 counter-container">
                 <div class="countdown-counter">
-                    <img src="assets/images/gettyimages-watch.jpg" />
+                    <img src="assets/images/tech-digitalTimer.jpg" />
                 </div>
             </div>
 
@@ -61,12 +65,12 @@
 
         <div class="row g-0 d-flex align-items-stretch">
             <!-- Where distraction giphy's goes -->
-            <div class="col-3" id="distraction">
+            <div class="col-lg-3 col-sm-4" id="distraction">
                 Whatever you do! Don't look here! Stay focused on the questions!
             </div>
 
             <!-- Answer choices & answers -->
-            <div class="col-6">
+            <div class="col-lg-6 col-sm-12">
                 <div class="answers-container">
                     <div class="center">
                         Come on hot shot, try me!!! <br>
@@ -76,12 +80,12 @@
             </div>
 
             <!-- Top 5 high scores list goes here -->
-            <div class="col-3" id="top5">
+            <div class="col-lg-3 col-sm-12" id="top5">
                 <h3>Top-5 High Scores</h3>
                 <ol id="high-scores"></ol>
             </div>
         </div>
-        
+        <!-- footer container with contributors info -->
         <div class="row g-0">
             <div class="footer">
                 <div id="copyright">
@@ -98,9 +102,7 @@
         </div>
     </div>
 
-
-    </div>
-    <!-- Modal content -->
+    <!-- Modal section where user inputs initials for being TOP-5 -->
     <div id="score-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -109,10 +111,8 @@
             </div>
             <form class="modal-input">
                 <div class="modal-body">
-
                     <input type="text" maxlength="3" class="initial">
                     <span id="new-score"></span>
-
                 </div>
                 <div class="modal-footer">
                     <h4>Please enter your initials to go onto Hall of Fame!</h4>
@@ -121,7 +121,7 @@
             </form>
         </div>
     </div>
-    <!-- End modal here -->
+
     <!-- modal for failed API -->
     <div id="alert-modal" class="modal">
         <div class="modal-content">
@@ -134,6 +134,8 @@
             </div>
         </div>
     </div>
+    <!-- End Modal section here -->
+    <!-- Links to scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/app.js"></script>
 </body>

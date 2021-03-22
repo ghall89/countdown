@@ -1,26 +1,27 @@
-body {
-    position: relative;
+/* remove browser defauts **********/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 .container {
-    width: 100%;
-    margin: 0 10px;
-    /* border: 2px solid #a50b13; */
+    max-width: 100%;
+    margin: 0;
 }
 .row {
     width: 100%;
 }
 .header-container {
     margin: 0;
-    /* border-bottom: 2px solid #a50b13; */
     height: 400px;
-    width: 1400px;
+    width: 100%;
     background: url("https://cdn.pixabay.com/photo/2018/07/04/22/55/fantasy-3517206_960_720.jpg");
     background-size: cover;
     background-position:center;
     color: gainsboro;
 }
 .header-container h1 {
-    color: #a50b13;
+    color: #be3239;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
     text-align: center;
@@ -30,7 +31,7 @@ body {
     transform: translate(-50%, -50%);
 }
 .filter-group {
-    border: 2px solid #a50b13;
+    border: 2px solid #be3239;
     min-height: 200px;
     background-color: black;
 }
@@ -39,13 +40,13 @@ body {
     margin: 15px 10px 10px 15px;
     width: 90%;
     border-radius: 5px;
-    background-color: #a50b13;
+    background-color: #be3239;
     height: 30px;
-    font-weight: bolder;
+    font-weight: bold;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 #start {
-    background-color: #a50b13;
+    background-color: #be3239;
     color: black;
     border-radius: 5px;
     width: 90%;
@@ -53,24 +54,32 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
 }
+
+/* Container where questions go */
 .questions-container {
-    border: 2px solid #a50b13;
+    border: none;
     min-height: 210px;
-    text-align: center;
+    padding: 0 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: black;
-    color: #a50b13;
+    color: #be3239;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
 }
+
+/* Container where answer choices go */
 .answers-container {
     min-height: 230px;
     height: 100%;
     background-color: black;
-    color:#a50b13 ;
+    color:#be3239 ;
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
-    border: 2px solid #a50b13;
+    border: none;
+    flex: auto;
 }
 .answers-container button {
     margin-right: 5px;
@@ -78,35 +87,42 @@ body {
     font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color:black;
-    background-color: #a50b13;
+    background-color: #be3239;
 }
+
+/* Container where the counter is displayed */
 .counter-container {
     background-color: black;
-    border: 2px solid #a50b13;
+    border: 2px solid #be3239;
 }
 .countdown-counter {
     height: 200px;
     text-align: center;
     font-size: 4rem;
-    color:#a50b13 ;
+    color:#be3239 ;
     position: relative; 
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%);
 }
+/* Counter initial image */
 .countdown-counter img {
     height: 200px;
-    width: auto;
+    width: 100%;
 }
+
+/* Distraction container & Score Container font */
 #distraction, #top5 {
-    color: #a50b13;
+    color: #be3239;
     font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
-    border: 2px solid #a50b13;
+    border: 2px solid #be3239;
+    padding: 10px;
 }
+
+/* Footer container */
 .footer {
-    /* border-top: 2px groove #a50b13; */
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: space-between;
@@ -118,18 +134,18 @@ body {
 }
 #copyright, #contributors {
     margin: 15px;
-    font-weight: bold;
-    color: #a50b13;
+    color: #be3239;
 }
 #contributors a {
-    color: #a50b13;
+    color: #be3239;
     padding: 5px;
     margin-left: 5px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 #distraction, #top5 {
     background-color: black;
 }
+
+/* Modal Section */
 .modal-header { 
     padding: 2px 16px;
     background-color: black;
@@ -140,6 +156,10 @@ body {
       padding: 2px 16px;
       display: flex;
 }
+  .modal-body input {
+      font-size: x-large;
+      font-weight: bolder;
+  }
   .modal-footer {
     padding: 2px 16px;
     background-color: black;
@@ -153,7 +173,7 @@ body {
   }
   .modal-content {
     position: relative;
-    background-color: #a50b13;
+    background-color: #be3239;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
@@ -167,13 +187,17 @@ body {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
   }
-  .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    /* border: 2px solid #a50b13; */ 
-  }
-  .col-6 {
-      /* border: 2px solid #a50b13; */
-  }
+
+  /* For screen size smaller than or equal to 980px **/
+@media screen and (max-width: 980px) {
+    .questions-container {
+        border: 2px solid #be3239;
+    }
+    #distraction {
+        display: none;
+    }
+    .footer {
+        justify-content: center;
+    }
+
+}

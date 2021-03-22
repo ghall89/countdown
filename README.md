@@ -51,8 +51,8 @@ https://htang2021.github.io/countDown/
 ## Contributors
 [Graham Hall](https://ghall89.github.io/portfolio-page/) |
 [Clayton Goff](https://clayto30.github.io/professional-portfolio/) |
-[Pritika Singh](https://psingh0920.github.io/htang-porfolio/) |
-[Nestor Cortes](https://ncortes85.github.io/htang-porfolio/) |
+[Pritika Singh](https://github.com/psingh0920) |
+[Nestor Cortes](https://github.com/ncortes85) |
 [Hung Tang](https://htang2021.github.io/htang-porfolio/)
 
 ## License & Credit
