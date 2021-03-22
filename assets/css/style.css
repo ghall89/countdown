@@ -3,7 +3,7 @@
 } */
 /* Outer most container of the page */
 .container {
-    width: 100%;
+    max-width: 100%;
     margin: 0;
     border: 5px solid blue;
 }
